@@ -1,0 +1,27 @@
+name: xserver-web-vnc
+type: sw.application
+joinable: false
+version: 0.0.0
+description: >-
+  Run a web VNC client to interact with and view your local xserver
+assets:
+  repository:
+    type: blob.asset
+    data:
+      url: 'https://github.com/balena-io-playground/xserver-web-vnc'
+  logo:
+    type: blob.asset
+    data:
+      url: "https://raw.githubusercontent.com/balena-io-playground/xserver-web-vnc/master/logo.png"
+data:
+  applicationEnvironmentVariables:
+    - VNC_PORT: 5900
+    - WEB_PORT: 9090
+  defaultDeviceType: "raspberrypi4-64"
+  supportedDeviceTypes:
+    - raspberry-pi
+    - raspberry-pi2
+    - raspberrypi3
+    - raspberrypi4-64
+    - fincm3
+    - intel-nuc

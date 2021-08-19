@@ -1,0 +1,21 @@
+ARG NODEJS_VERSION="14"
+
+FROM balenalib/$BALENA_ARCH-debian:bullseye
+
+RUN install_packages novnc x11vnc
+
+COPY entry.sh /
+
+RUN chmod +x entry.sh \
+    && ln -s /usr/share/novnc/vnc.html /usr/share/novnc/index.html
+
+ENTRYPOINT ["sh", "/entry.sh"]
+
+ENV DISPLAY=:0 \
+    VNC_PORT=5900 \
+    WEB_PORT=9090
+    #ACCESS_PASSWORD
+    #VIEW_PASSWORD
+    #DISABLE_PASSWORDS
+
+EXPOSE 9090

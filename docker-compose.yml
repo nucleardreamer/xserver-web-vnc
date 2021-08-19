@@ -1,0 +1,18 @@
+version: '2.1'
+volumes:
+    data:
+    xserver:
+services:
+  xserver:
+    image: balenablocks/xserver
+    restart: always
+    privileged: true
+    volumes:
+      - 'xserver:/tmp/.X11-unix'
+  novnc:
+    build: .
+    restart: always
+    network_mode: host
+    privileged: true
+    volumes:
+      - 'xserver:/tmp/.X11-unix'
