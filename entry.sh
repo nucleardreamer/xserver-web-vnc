@@ -18,6 +18,14 @@ else
     PASSWORD_OPT=
 fi
 
+if [ -z $VIEW_ONLY ]; then
+    echo "Enabling view-only mode"
+    VIEWONLY_OPT=" -viewonly "
+else
+    echo "Disabling view-only mode"
+    VIEWONLY_OPT=
+fi
+
 echo "\n#"
 echo "# Starting x11vnc"
 echo "#"
@@ -25,7 +33,7 @@ echo "#"
 x11vnc \
   -display $DISPLAY \
   -listen localhost \
-  -noshm \
+  # -noshm \
   -no6 \
   -rfbport $VNC_PORT \
   -nopw \
@@ -34,6 +42,7 @@ x11vnc \
   -bg \
   -forever \
   -quiet \
+  $VIEWONLY_OPT \
   $PASSWORD_OPT
 
 echo "\n#"
