@@ -9,10 +9,22 @@ services:
     privileged: true
     volumes:
       - 'xserver:/tmp/.X11-unix'
-  novnc:
+  xserver-web-vnc:
     build: .
     restart: always
     network_mode: host
     privileged: true
+    volumes:
+      - 'xserver:/tmp/.X11-unix'
+    environment:
+      WEB_PORT: 80
+      DISABLE_PASSWORDS: true
+  chess:
+    build: ./example/chess
+    restart: always
+    devices:
+      - /dev/dri
+    group_add:
+      - video
     volumes:
       - 'xserver:/tmp/.X11-unix'

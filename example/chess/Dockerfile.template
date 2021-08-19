@@ -1,0 +1,7 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:bullseye
+
+RUN install_packages dreamchess
+
+ENTRYPOINT  ["/usr/games/dreamchess"]
+
+ENV DISPLAY=:0
