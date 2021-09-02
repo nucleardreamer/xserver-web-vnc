@@ -17,7 +17,7 @@ data:
   applicationEnvironmentVariables:
     - VNC_PORT: 5900
     - WEB_PORT: 9090
-  defaultDeviceType: "raspberrypi4-64"
+  defaultDeviceType: "intel-nuc"
   supportedDeviceTypes:
     - raspberry-pi
     - raspberry-pi2
